@@ -2,7 +2,7 @@ def imagename = "chaitanyapriya/htmlimage"
 def dockerImage = ''
  node {
      stage('Cloning Git') {
-         git(url: https://github.com/chaitanyapriya123/task3html.git'', branch: 'main')
+         git(url: 'https://github.com/chaitanyapriya123/task3html.git', branch: 'main')
        }
       stage('Building image') {
          script {
