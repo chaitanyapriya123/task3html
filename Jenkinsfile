@@ -10,8 +10,8 @@ def dockerImage = ''
       }
     }
       stage('Deploy Image') {
-          withCredentials([usernamePassword(credentialsId: 'Docker', passwordVariable: 'DockerPassword', usernameVariable: 'DockerUser')]) {
-            sh "docker login -u ${env.DockerUser} -p ${env.DockerPassword}"
+          withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUser')]) {
+            sh "docker login -u ${env.dockerUser} -p ${env.dockerPassword}"
             sh 'docker push chaitanyapriya/htmlimage:latest'
             sh "docker pull chaitanyapriya/htmlimage:latest"
             sh "docker run -d -t -p 3000:3000 --name mycontainer${BUILD_NUMBER}. chaitanyapriya/htmlimage:latest "
